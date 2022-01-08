@@ -17,6 +17,9 @@ fn main() {
         true => 'x',
         false => '°'
     };
+    if opt.message.to_lowercase().contains("woof") {
+        eprintln!("A cat shouldn't bark!");
+    }
     println!("{}", opt.message);
     println!(" \\");
     println!("  \\");
