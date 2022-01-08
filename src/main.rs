@@ -1,4 +1,5 @@
 use structopt::StructOpt;
+use colored::*;
 /// Let the cat speak for you in the shell
 #[derive(StructOpt, Debug)]
 #[structopt(name = "catsay")]
@@ -14,13 +15,13 @@ fn main() {
     let opt = CatsayArgs::from_args();
     println!("{:?}", opt);
     let eye = match opt.dead {
-        true => 'x',
-        false => '°'
+        true => "x".red().bold(),
+        false => "°".normal()
     };
     if opt.message.to_lowercase().contains("woof") {
         eprintln!("A cat shouldn't bark!");
     }
-    println!("{}", opt.message);
+    println!("{}", opt.message.yellow().on_purple());
     println!(" \\");
     println!("  \\");
     println!("    ^_^");
