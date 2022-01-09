@@ -34,6 +34,5 @@ fn main() {
         cat = std::fs::read_to_string(opt.file.unwrap()).expect("Could not parse file");
     }
     println!("{}", opt.message.yellow().on_purple());
-    // TODO fix dead eye formatting
-    println!("{}", cat.replace("{eye}", &eye));
+    println!("{}", cat.replace("{eye}", &eye.to_string()));
 }
